@@ -1,0 +1,14 @@
+# Informações privadas e configurações locais
+.env
+.env.*
+!.env.example
+.dev.vars
+
+# Arquivos gerados
+dist/
+node_modules/
+
+# Sistema e editor
+.DS_Store
+Thumbs.db
+.vscode/

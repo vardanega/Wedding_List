@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Lista de presentes de casamento de Jéssica e Claudio"
+    />
+    <title>"Nome dos noivos" — Lista de presentes</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23798667'/%3E%3Cpath d='M32 49S12 38 12 23c0-10 13-14 20-4 7-10 20-6 20 4 0 15-20 26-20 26Z' fill='%23fffaf0'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=6" />
+    <link rel="stylesheet" href="dialog.css?v=7" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="leaves" aria-hidden="true"></div>
+      <p class="eyebrow">"Data do casamento"</p>
+      <h1>Noiva <span>&</span> Noivo</h1>
+      <p class="subtitle">Nossa lista de presentes</p>
+      <p class="intro">
+        Reunimos aqui algumas ideias para quem quiser fazer parte dos nossos próximos
+        capítulos — entre viagens, experiências e detalhes para a nossa casa.
+      </p>
+    </header>
+
+    <main>
+      <section class="notice" aria-label="Como funciona">
+        <span>♡</span>
+        <p>
+          Escolha uma sugestão que combine com você. Cada presente vai ajudar a construir
+          momentos especiais e a nova casa do casal.
+        </p>
+      </section>
+
+      <section id="presentes" class="gifts">
+        <div class="section-heading">
+          <p class="eyebrow">Escolha um carinho</p>
+          <h2>Momentos para a nossa história</h2>
+        </div>
+        <div id="gift-grid" class="gift-grid"></div>
+      </section>
+
+      <section class="direct">
+        <p class="eyebrow">Valor livre</p>
+        <h2>Prefere escolher outro valor?</h2>
+        <p>Se preferir, escolha o valor que quiser e deixe o presente do seu jeito.</p>
+        <button class="secondary" type="button" data-free-value>
+          Contribuir com outro valor
+        </button>
+      </section>
+    </main>
+
+    <footer>
+      <p>Com carinho, "Noivos"</p>
+      <small>"Local"</small>
+    </footer>
+
+    <dialog id="payment-dialog" aria-labelledby="dialog-title">
+      <button class="close" type="button" aria-label="Fechar">×</button>
+      <p class="eyebrow">Presentear</p>
+      <h2 id="dialog-title">Escolha a melhor forma de nos presentear.</h2>
+      <p id="selection" class="selection"></p>
+      <div class="dialog-grid">
+        <div class="payment-options">
+          <p class="payment-intro">Use uma das opções disponíveis abaixo.</p>
+          <a
+            id="card-payment"
+            class="payment-link card-payment"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            hidden
+          >
+            <span aria-hidden="true">💳</span>
+            <span>Cartão de crédito ou débito <small>· Mercado Pago</small></span>
+          </a>
+          <div id="pix-box" class="bank-box pix-box">
+            <span id="pix-label">Pix copia e cola</span>
+            <div
+              id="pix-placeholder"
+              class="pix-placeholder"
+              aria-label="Espaço reservado para o QR Code Pix"
+            >
+              <b>QR Code Pix</b>
+              <small>Será adicionado aqui</small>
+            </div>
+            <img id="pix-qr" class="pix-qr" alt="QR Code Pix" hidden />
+            <strong id="pix-code" hidden></strong>
+            <button id="copy-pix" type="button" class="copy" data-copy="pix-code" hidden>
+              Copiar código Pix
+            </button>
+          </div>
+          <div id="free-pix-box" class="bank-box" hidden>
+            <span>Pix · transferência</span>
+            <strong id="free-pix-key">Chave Pix será adicionada aqui</strong>
+            <button
+              id="copy-free-pix"
+              type="button"
+              class="copy"
+              data-copy="free-pix-key"
+              hidden
+            >
+              Copiar chave Pix
+            </button>
+          </div>
+          <div id="iban-box" class="bank-box" hidden>
+            <span>Transferência bancária · IBAN</span>
+      <strong id="iban"></strong>
+            <button type="button" class="copy" data-copy="iban">Copiar IBAN</button>
+          </div>
+          <p class="privacy">
+            A transferência é concluída no aplicativo do seu banco. Este site não pede
+            senha nem dados do cartão.
+          </p>
+        </div>
+        <form id="message-form" class="message-form">
+          <div class="message-heading">
+            <div>
+              <p class="eyebrow">Um carinho a mais</p>
+              <h3>Deixe uma mensagem para os noivos</h3>
+            </div>
+            <button id="suggest-message" class="suggest" type="button">
+              ✨ Gerar sugestão
+            </button>
+          </div>
+          <label for="guest-name">Seu nome</label>
+          <input
+            id="guest-name"
+            name="name"
+            maxlength="80"
+            autocomplete="name"
+            required
+          />
+          <label for="guest-message">Sua mensagem</label>
+          <textarea
+            id="guest-message"
+            name="message"
+            maxlength="600"
+            rows="5"
+            required
+          ></textarea>
+          <input
+            class="honeypot"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+          <button class="send-message" type="submit">Enviar mensagem</button>
+          <p
+            id="message-status"
+            class="message-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+        </form>
+      </div>
+    </dialog>
+
+    <script src="app.js?v=6"></script>
+  </body>
+</html>
